@@ -15,7 +15,7 @@ def updateWallets(wallets, walletSentModifiqued,  walletRecievedModifiqued):
 class BlockChain:
     def __init__(self):
         self.chain = []
-        self.generate_genesis_block()
+        self.generateGenesisBlock()
 
         self.block = []
         self.wallets = []
@@ -24,13 +24,13 @@ class BlockChain:
         self.chain.append(Block("first", ['Genesis Block']))
 
     def create_block_from_transaction(self, transactions):
-        previousBlockHash = self.lastBlock.block_hash
+        previousBlockHash = self.lastBlock.blockHash
         self.chain.append(Block(previousBlockHash, transactions))
 
     def showChain(self):
         for i in range(len(self.chain)):
             print(
-                f"Data {i + 1}: {self.chain[i].block_data} \n Hash {i + 1}: {self.chain[i].block_hash}\n\n")
+                f"Data {i + 1}: {self.chain[i].blockData} \n Hash {i + 1}: {self.chain[i].blockHash}\n\n")
 
     def lastBlock(self):
         return self.chain[-1]
@@ -51,7 +51,7 @@ class Block:
         self.transactions = transactions
 
         self.blockData = f"{'#'.join(transactions)} # {prevBlockHash}"
-        self.blockHash = hashlib.sha256(self.block_data.encode()).hexdigest()
+        self.blockHash = hashlib.sha256(self.blockData.encode()).hexdigest()
 
     def makeTransaction(walletSent, walletRecieved, cantidad, wallets):
         if(walletSent.id == walletRecieved.id):

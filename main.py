@@ -40,4 +40,5 @@ t3 = "Juan sends 5 coin to Daniela"
 t4 = "Juan sends 5 coin to Noah"
 
 
-block1 = Block('genesis', [t1, t2])
+bitCoinDairo = BlockChain()
+bitCoinDairo.showChain()
